@@ -1,0 +1,61 @@
+{
+  "authors": [
+    {
+      "id": "01",
+      "name": "Machado de Assis",
+      "type": "Autor",
+      "books": [
+        {
+          "name": "Memórias Póstumas de Brás Cubas",
+          "year": 1881
+        },
+        {
+          "name": "Dom Casmurro",
+          "year": 1899
+        },
+        {
+          "name": "Esaú e Jacó",
+          "year": 1904
+        }
+      ]
+    },
+    {
+      "id": "02",
+      "name": "Jorge Amado",
+      "type": "Autor",
+      "books": [
+        {
+          "name": "Capitães da Areia",
+          "year": 1937
+        },
+        {
+          "name": "Gabriela, Cravo e Canela",
+          "year": 1958
+        },
+        {
+          "name": "Tenda dos Milagres",
+          "year": 1969
+        }
+      ]
+    },
+    {
+      "id": "03",
+      "name": "Clarice Lispector",
+      "type": "Autor",
+      "books": [
+        {
+          "name": "Perto do Coração Selvagem",
+          "year": 1943
+        },
+        {
+          "name": "A Paixão segundo G.H.",
+          "year": 1964
+        },
+        {
+          "name": "A Hora da Estrela",
+          "year": 1977
+        }
+      ]
+    }
+  ]
+}
