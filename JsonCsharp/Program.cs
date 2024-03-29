@@ -32,5 +32,64 @@ foreach (var book in author?.Books ?? Enumerable.Empty<Book>())
     Console.WriteLine(book.Name);
 }
 
-//Interrompe a execução do programa.
+//Procura por autores com o nome "Clarice Lispector" dentro do objeto JSON e,
+//se encontrados, retorna os livros associados a essa autora.
+
+var books = JObject.Parse(jsonText)["authors"]?
+                    .Where(x => (string?)x["name"] == "Clarice Lispector")
+                    .Select(s => s["books"]);
+
+//Cria uma nova instância de JArray, que será usada para armazenar os livros
+//da "Clarice Lispector".
+
+var clariceBooks = new JArray();
+
+//Itera sobre os livros obtidos. Se a variável books for nula, IEnumerable<JToken>()
+//é usado como uma coleção vazia.
+
+foreach (var b in books ?? [])
+{
+    if (b is JArray authorBooks)
+    {
+        //Mescla os livros da autora.
+        clariceBooks.Merge(authorBooks);
+    }
+}
+
+//Converte os livros de "Clarice Lispector" em formato JSON para uma string.
+
+var clariceJson = clariceBooks.ToString();
+
+//Imprime a string JSON no console.
+
+Console.WriteLine(clariceJson);
+
 Debugger.Break();
+
+//Criando um novo autor.
+
+Author newAuthor = new()
+{
+    Id = authorList.Authors.Max(s => s.Id) + 1,
+    Name = "Guimarães Rosa",
+    Type = "Autor",
+    Books = []
+};
+
+//Adicionando um novo autor.
+
+authorList.Authors.Add(newAuthor);
+
+// Serializa a lista atualizada de autores de volta para JSON.
+
+string updatedJson = JsonConvert.SerializeObject(authorList, Formatting.Indented);
+
+// Cria um novo arquivo JSON na pasta padrão do sistema.
+
+string newFilePath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "NewAuthors.json");
+
+// Escreve o JSON serializado no novo arquivo
+
+File.WriteAllText(newFilePath, updatedJson);
+
+Console.WriteLine($"Novo arquivo JSON criado em: {newFilePath}");
