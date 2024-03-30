@@ -25,7 +25,6 @@
 * O arquivo **Authors.json** na pasta **Json** contém o JSON de exemplo com autores e livros.
 * As classes **Author** e **Book** representam os modelos de dados para autores e livros, respectivamente.
 * A classe **AuthorListContainer** é um contêiner para a lista de autores.
-* O método **Main** demonstra as funcionalidades do projeto.
 
 <h2>Observações</h2>
 
