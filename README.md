@@ -29,7 +29,7 @@
 
 <h2>Observações</h2>
 
-* Este é um projeto simples para fins de demonstração.
+* Este é um projeto simples para fins de estudos.
 * Desenvolvido em .NET 8.0
 
 </html>
